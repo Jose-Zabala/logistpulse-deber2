@@ -1,0 +1,30 @@
+graph planta {
+  layout=neato; bgcolor=white; splines=true; overlap=false; outputorder=edgesfirst;
+  labelloc=t; fontname="Helvetica"; fontsize=22; label="Planta LOGISTPULSE como grafo ponderado · distancias en metros\n";
+  node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=14, width=1.35, height=0.75, color="#7f9cc4", fillcolor="#eef4fc", penwidth=1.5];
+  edge [fontname="Helvetica-Bold", fontsize=15, color="#9aa9bb", penwidth=2];
+  R [label="R\nRecepción\n(origen)", pos="0,1.6!", fillcolor="#dbeafe", color="#1d4ed8", penwidth=2.5];
+  A [label="A\nPasillo A", pos="2.3,3.0!"];
+  B [label="B\nPasillo B", pos="2.3,0.3!"];
+  P [label="P\nPicking", pos="4.6,1.6!", fillcolor="#e3f4e8", color="#3a9a5b"];
+  C [label="C\nPasillo C", pos="4.6,-1.0!"];
+  E [label="E\nEmpaque", pos="6.9,1.6!"];
+  D [label="D\nDespacho\n(destino)", pos="9.2,1.6!", fillcolor="#fdeedd", color="#d07a2b", penwidth=2.5];
+  R -- A [label=" 4 "];
+  R -- B [label=" 2 ", color="#1d4ed8", penwidth=5, fontcolor="#1d4ed8"];
+  A -- B [label=" 1 ", color="#1d4ed8", penwidth=5, fontcolor="#1d4ed8"];
+  A -- P [label=" 3 ", color="#1d4ed8", penwidth=5, fontcolor="#1d4ed8"];
+  A -- E [label=" 5 ", color="#d97706", penwidth=3, style=dashed, fontcolor="#d97706"];
+  B -- P [label=" 7 "];
+  B -- C [label=" 3 "];
+  P -- E [label=" 2 ", color="#1d4ed8", penwidth=5, fontcolor="#1d4ed8"];
+  P -- C [label=" 2 "];
+  C -- E [label=" 4 "];
+  E -- D [label=" 3 ", color="#1d4ed8", penwidth=5, fontcolor="#1d4ed8"];
+  leyenda [shape=plaintext, style="", fontsize=13, pos="4.6,-2.3!", label=<
+    <table border="0" cellspacing="6">
+    <tr><td><font color="#1d4ed8"><b>━━ Ruta Dijkstra: R → B → A → P → E → D = 2+1+3+2+3 = 11 m</b></font></td></tr>
+    <tr><td><font color="#d97706"><b>╍╍ Empate: R → B → A → E → D = 2+1+5+3 = 11 m</b></font></td></tr>
+    <tr><td><font color="#555555">Grafo no dirigido · 7 vértices, 11 aristas · sin zonas bloqueadas en el escenario base</font></td></tr>
+    </table>>];
+}
